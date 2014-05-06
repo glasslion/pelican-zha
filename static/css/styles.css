@@ -12,10 +12,11 @@ html { /* This stuff is for the sticky footer. */
     position:relative;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
+    border-top: 0.3em solid #F3343B;
 }
 
 body {
-    background-color:#fafafa;
+    background-color:#CCCCCC;
     font-family:'Open Sans';
     margin: 20px auto 100px auto; /* For sticky footer. */
 }
@@ -34,15 +35,20 @@ body {
     height: 200px;
 }
 
+.sitelogo,
 .siteimage {
     float: left;
     width: 230px;
 }
 
+.sitelogo .fa{
+    font-size: 10em;
+}
+
 .sitetitle {
     font-family: 'Merriweather';
     font-weight: 300;
-    font-size: 4em;
+    font-size: 3em;
     padding-left: 10px; /* Hack to dodge :hover issue. */
     position: relative; /* Hack to dodge :hover issue. */
     left: -10px; /* Hack to dodge :hover issue. */
@@ -81,7 +87,7 @@ body {
 }
 
 .postinfo {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 10px;
     color: #666;
     font-size: .7em;
