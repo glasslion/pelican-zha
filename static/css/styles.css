@@ -16,7 +16,7 @@ html { /* This stuff is for the sticky footer. */
 }
 
 body {
-    background-color:#CCCCCC;
+    background-color:#FFFCFC;
     font-family:'Open Sans';
     margin: 20px auto 100px auto; /* For sticky footer. */
 }
@@ -105,7 +105,7 @@ body {
 /* Links. */
 
 a { /* Generic link styling, greyish and underlined. */
-    color: #2E2E2E;
+    color: #000000;
     text-decoration: underline;
     -o-transition:color .2s ease-in-out;
     -webkit-transition:color .2s ease-in-out;
