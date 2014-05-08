@@ -3,35 +3,31 @@
 
 {% block content %}
 
-<section class="content">
+<content class="content">
 
-  <ol id="postlist">
+  <ul id="post-list">
 
     {% for article in articles_page.object_list %}
     <li class="post">
-        <header class="posttitle">
-          <h3><a href="{{ SITEURL }}/{{ article.url }}"
-                  rel="bookmark"
-                  class="nodec"
-                  title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-          </h3>
-        </header>
-
-        <div class="postinfo">
-          <p class="published" title="{{ article.date.isoformat() }}"> {{ article.locale_date }} </p>
-          {% if article.author and SHOW_ARTICLE_AUTHOR %}
-          <address class="vcard author">By <a "nodec" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></address>
-          {% endif %}
-        </div><!-- /.postinfo -->
-
+      <div class="post-info">
+        <p class="published" title="{{ article.date.isoformat() }}"> {{ article.locale_date }} </p>
+      </div>
+      <div class="post-details">
+        <h3>
+          <a href="{{ SITEURL }}/{{ article.url }}"
+             rel="bookmark"
+             class="nodec"
+             title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+        </h3>
         <div class="postsummary"> {{ article.summary }} </div>
+      </div>
     </li>
     {% endfor %}
 
-  </ol><!-- /#post-list -->
+  </ul><!-- /#post-list -->
 
   {% include 'pagination.html' %}
 
-</section><!-- /#content -->
+</content><!-- /#content -->
 
 {% endblock content %}
