@@ -10,10 +10,10 @@
       </a>
     </h1>
     <div class="post-info">
-    <p class="published" title="{{ article.date.isoformat() }}">
+      <p class="published" title="{{ article.date.isoformat() }}">
       {{ article.locale_date }}
-    </p>
-  </div>
+      </p>
+    </div>
   </header>
 
   <div class="article">
@@ -21,5 +21,9 @@
   </div><!-- .content -->
 
 </article>
+
+{% if DISQUS_SITENAME %}
+  {% include "disqus.html" %}
+{% endif %}
 
 {% endblock %}
