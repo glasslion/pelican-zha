@@ -10,12 +10,12 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans|Vollkorn' rel='stylesheet' type='text/css'>
 
       #}
-      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/webfonts.css"/>
-      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/font-awesome.min.css"/>
-      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/typo.css"/>
-      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygment.css"/>
+      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/webfonts.css"/>
+      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/font-awesome.min.css"/>
+      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/typo.css"/>
+      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/pygment.css"/>
       {% assets filters="less", output="css/styles.min.css", "css/styles.less" %}
-        <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+        <link rel="stylesheet" href="{{ CDN_URL }}/{{ ASSET_URL }}">
       {% endassets %}
 
       <meta charset="utf-8" />
