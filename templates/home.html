@@ -16,7 +16,7 @@
           <a href="{{ SITEURL }}/{{ article.url }}"
              rel="bookmark"
              class="nodec"
-             title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+             title="{{ article.title|striptags }}">{{ article.title }}</a>
         </li>
       {% endfor %} 
     </ul>
