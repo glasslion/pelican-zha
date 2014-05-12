@@ -8,13 +8,12 @@
          dump the css and fonts to my local directory.
          The original
         <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans|Vollkorn' rel='stylesheet' type='text/css'>
-
       #}
-      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/webfonts.css"/>
       <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/font-awesome.min.css"/>
-      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/typo.css"/>
-      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/pygment.css"/>
-      {% assets filters="less", output="css/styles.min.css", "css/styles.less" %}
+      {# 'css/styles.less' is decompiled to styles_less. See pelicanconf.ASSET_BUNDLES.
+          Here we only need to minify the css.
+      #}
+      {% assets filters="cssmin", output="css/styles.min.css", "css/webfonts.css", "css/typo.css", "css/pygment.css", "styles_less" %}
         <link rel="stylesheet" href="{{ CDN_URL }}/{{ ASSET_URL }}">
       {% endassets %}
 
