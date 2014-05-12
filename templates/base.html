@@ -31,15 +31,8 @@
   <body>
     <!-- header -->
     <header class="siteheader">
-      <!-- site image -->
-      {% if PROFILE_IMAGE_URL %}
-        <div class= "siteimage">
-          <a class="nodec" href={{ PROFILE_IMAGE_URL }}>
-            <img width="200" height="200" src={{ PROFILE_IMAGE_URL }}>
-          </a>
-        </div>
-      {% endif %}
-      <div class="sitelogo">  
+      <div class="site-logo">  
+        <img src="{{ CDN_URL }}/theme/images/logo.svg">
       </div>
       <div class = "site-banner">
         <h1 lang="en"><a class="site-name-en nodec" href="{{ SITEURL }}">{{ SITE_ENGLISH_NAME }}</a></h1>
