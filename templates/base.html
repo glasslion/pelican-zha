@@ -1,84 +1,95 @@
 <!DOCTYPE html>
-<html lang="{{ DEFAULT_LANG }}">
-
+<!--[if IE 8]>
+<html class="ie8" lang="{{ DEFAULT_LANG }}">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html lang="{{ DEFAULT_LANG }}"><!--<![endif]-->
   <head>
-    {% block head %}
-      <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-      {# note: Since Google Font is blocked in China. I am using a tool: fontdump, to
-         dump the css and fonts to my local directory.
-         The original
-        <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans|Vollkorn' rel='stylesheet' type='text/css'>
-      #}
-      <link rel="stylesheet" type="text/css" href="{{ CDN_URL }}/theme/css/font-awesome.min.css"/>
-      {# 'css/styles.less' is decompiled to styles_less. See pelicanconf.ASSET_BUNDLES.
-          Here we only need to minify the css.
-      #}
-      {% assets filters="cssmin", output="css/styles.min.css", "css/webfonts.css", "css/typo.css", "css/pygment.css", "styles_less" %}
-        <link rel="stylesheet" href="{{ CDN_URL }}/{{ ASSET_URL }}">
-      {% endassets %}
-
-      <meta charset="utf-8" />
-      {% if FEED_ATOM %}
-        <link href="/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
-      {% endif %}
+    {% block headers %}
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{% block title %}{{ SITENAME }}{%endblock title%}</title>
       {% if FEED_RSS %}
-        <link href="/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        <link rel ="alternate" type="application/rss+xml"
+                               title="{{ SITENAME }} — Flux RSS"
+                               href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
       {% endif %}
-    {% endblock head %}
+      <link rel="stylesheet" id="graphy-fonts-css" href="//fonts.googleapis.com/css?family=Lora%3A400%2C400italic%2C700%2C700italic%7CBitter%3A400&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
+      <link rel="stylesheet" id="graphy-genericons-css" href="http://wp-themes.com/wp-content/themes/graphy/genericons/genericons.css?ver=3.0.3" type="text/css" media="all">
+      <link rel="stylesheet" id="graphy-style-css" href="http://wp-themes.com/wp-content/themes/graphy/style.css?ver=4.0-beta3-20140812" type="text/css" media="all">
+      <meta name="generator" content="WordPress 4.0-beta3-20140812">
+        <style type="text/css">
+          .site-logo { margin-top: px; padding-bottom: px; }
+          .entry-content a, .entry-summary a, .comment-content a, .comment-respond a, .navigation a, .comment-navigation a, .current-menu-item > a { color:; }
+          a:hover { color:; }
+        </style>
+        <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+      <style type="text/css"></style>
+    {% endblock headers %}
   </head>
 
-  <body>
-    <!-- header -->
-    <header class="siteheader">
-      <div class="site-logo">  
-        <img src="{{ CDN_URL }}/theme/images/logo.svg">
-      </div>
-      <div class = "site-banner">
-        <h1 lang="en"><a class="site-name-en nodec" href="{{ SITEURL }}">{{ SITE_ENGLISH_NAME }}</a></h1>
-        <h1 lang="zh" class ="site-name-ch">{{ SITE_CHINESE_NAME }}</h1>
-        <div class="site-quote">
-          <blockquote>
-            <p>穷发之北有冥海者，天池也。有鱼焉，其广数千里，未有知其修者，其名为鲲。有鸟焉，其名为鹏。背若泰山，翼若垂天之云。抟扶摇羊角而上者九万里，绝云气，负青天，然后图南，且适南冥也。</p>
-            <p class="right-quote">《庄子·内篇·逍遥游第一》</p>
-          </blockquote>
+
+  <body class="home blog no-sidebar footer-0 has-avatars">
+    <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+        <div class="site-branding">
+          <h1 class="site-title"><a href="/" rel="home">{{ SITENAME }}</a></h1>
+          <div class="site-description">{{ SITE_DESCRIPTION }}</div>
         </div>
-        <!-- nav -->
-        <nav class="menu">
-          <ul>
-            <!-- menu items-->
-            {% for title, link in MENUITEMS %}
-              <li><a class="nodec" href="{{ link }}">{{ title }}</a></li>
-            {% endfor %}
-            <!--pages-->
-            {% if DISPLAY_PAGES_ON_MENU %}
-              {% for p in PAGES %}
-                <li{% if p == page %} class="active"{% endif %}><a class="nodec" href="{{ SITEURL }}/{{ p.url }}">{{ p.title|lower }}</a></li>
-              {% endfor %}
-            {% endif %}
-            {% if SOCIAL %}
-              {% for name, link in SOCIAL %}
-                <li><a class="nodec fa fa-3 fa-{{name|lower}}" href="{{ link }}"></a></li>
-              {% endfor %}
-            {% endif %}
-            <li><a class="nodec fa fa-3 fa-rss" href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"></a></li>
-          </ul>
-        </nav>
-      </div> <!-- sitebanner -->
-    </header>
 
-    <!-- content -->
-    {% block content %}
-    {% endblock %}
+        <div class="main-navigation-wrapper">
+          <nav id="site-navigation" class="main-navigation" role="navigation">
+            <h1 class="menu-toggle">Menu</h1>
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <div class="menu">
+              <ul>
+                <li class="current_page_item">
+                  <a href="{{ SITE_URL }}">Home</a>
+                </li>
+                <li class="page_item page-item-2">
+                  <a href="http://wp-themes.com/?page_id=2">About</a>
+                </li>
+                <li class="page_item page-item-46 page_item_has_children">
+                  <a href="http://wp-themes.com/?page_id=46">Parent Page</a>
+                  <ul class="children">
+                    <li class="page_item page-item-49">
+                      <a href="http://wp-themes.com/?page_id=49">Sub-page</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- .menu -->
+            <form role="search" method="get" class="search-form" action="http://wp-themes.com/">
+            <label>
+              <span class="screen-reader-text">Search for:</span>
+              <input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+            </label>
+            <input type="submit" class="search-submit" value="Search">
+          </form>            
+          </nav><!-- #site-navigation -->
+        </div>
+      </header><!-- #masthead -->
 
-    <!-- footer -->
-    <footer>
-      <p>
-        © Copyright {{ CURRENT_DATETIME|strftime('%Y') }} by {{ AUTHOR }}.
-      </p>
-    </footer>
-    <script type="text/javascript">
-      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff31dbac3b42716c990b2aa5651027fce' type='text/javascript'%3E%3C/script%3E"));
-    </script>
+      <div id="content" class="site-content">
+        <div id="primary" class="content-area">
+          <main id="main" class="site-main" role="main">
+            {% block content %}{% endblock content %}
+          </main><!-- #main -->
+        </div><!-- #primary -->
+      </div><!-- #content -->
+
+      <footer id="colophon" class="site-footer" role="contentinfo">
+            <div class="site-info">
+          <div class="site-copyright">© 2014 <a href="http://wp-themes.com/" rel="home">Theme Preview</a></div>
+          <div class="site-credit">Powered by <a href="http://wordpress.org/">WordPress</a> &amp;
+          <a href="http://themegraphy.com/">Themegraphy</a></div>
+        </div><!-- .site-info -->
+      </footer><!-- #colophon -->
+
+    </div><!-- #page -->
+
+  <script type="text/javascript" src="http://wp-themes.com/wp-content/themes/graphy/js/navigation.js?ver=20140207"></script>
+  <script type="text/javascript" src="http://wp-themes.com/wp-content/themes/graphy/js/skip-link-focus-fix.js?ver=20130115"></script>
+
   </body>
 </html>
