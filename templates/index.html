@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% block page_header %}{% endblock page_header %}
   {% for article in articles[:5] %}
     <article  class="post hentry">
       <header class="entry-header">
@@ -8,10 +9,15 @@
           <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}" rel="bookmark">{{ article.title }}</a>
         </h1>
         <div class="entry-meta">
-          <span class="posted-on">Posted on  <time class="entry-date published" datetime="{{article.date.isoformat()}}"> {{ article.locale_date }}</time>
+          <span class="posted-on">Posted on  
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark">
+              <time class="entry-date published" datetime="{{article.date.isoformat()}}"> {{ article.locale_date }}</time>
+            </a>
           </span>
           <span class="byline">by 
-            <span class="author vcard"> {{article.author}} </span>
+            <span class="author vcard">
+              <a class="url fn n" href="{{ SITEURL }}/{{ article.url }}">{{article.author}}</a>
+            </span>
           </span>
         </div><!-- .entry-meta -->
       </header><!-- .entry-header -->
