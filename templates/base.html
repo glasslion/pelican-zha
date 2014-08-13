@@ -44,18 +44,23 @@
             <div class="menu">
               <ul>
                 <li class="current_page_item">
-                  <a href="{{ SITE_URL }}">Home</a>
+                  <a href="{{ SITE_URL }}/">Home</a>
                 </li>
-                <li class="page_item page-item-2">
+                <li class="page_item">
                   <a href="http://wp-themes.com/?page_id=2">About</a>
                 </li>
-                <li class="page_item page-item-46 page_item_has_children">
-                  <a href="http://wp-themes.com/?page_id=46">Parent Page</a>
+                <li class="page_item page_item_has_children">
+                  <a href="#">Categories</a>
                   <ul class="children">
-                    <li class="page_item page-item-49">
-                      <a href="http://wp-themes.com/?page_id=49">Sub-page</a>
-                    </li>
+                    {% for category , articles in categories %}
+                      <li class="page_item">
+                        <a href="{{ SITE_URL }}/{{category.url}}">{{category}}</a>
+                      </li>
+                    {% endfor %}
                   </ul>
+                </li>
+                <li class="page_item">
+                  <a href="{{ SITE_URL }}/tags.html">Tags</a>
                 </li>
               </ul>
             </div><!-- .menu -->
