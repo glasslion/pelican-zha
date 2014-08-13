@@ -25,6 +25,7 @@
         </style>
         <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
       <style type="text/css"></style>
+      {% block extra_css %}{% endblock %}
     {% endblock headers %}
   </head>
 
@@ -93,8 +94,8 @@
 
     </div><!-- #page -->
 
-  <script type="text/javascript" src="http://wp-themes.com/wp-content/themes/graphy/js/navigation.js?ver=20140207"></script>
-  <script type="text/javascript" src="http://wp-themes.com/wp-content/themes/graphy/js/skip-link-focus-fix.js?ver=20130115"></script>
-
+  <script type="text/javascript" src="{{ CDN_URL }}/theme/js/navigation.js"></script>
+  <script type="text/javascript" src="{{ CDN_URL }}/theme/js/skip-link-focus-fix.js"></script>
+  {% block extra_js %}{% endblock %}
   </body>
 </html>
