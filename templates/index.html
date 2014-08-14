@@ -10,7 +10,7 @@
         </h1>
         <div class="entry-meta">
           <span class="posted-on">Posted on  
-            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark">
+            <a href="{{ SITEURL }}/archives/{{ article.date|strftime('%Y') }}/{{ article.date|strftime('%m') }}/" rel="bookmark">
               <time class="entry-date published" datetime="{{article.date.isoformat()}}"> {{ article.locale_date }}</time>
             </a>
           </span>
