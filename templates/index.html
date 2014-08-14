@@ -2,7 +2,7 @@
 
 {% block content %}
   {% block page_header %}{% endblock page_header %}
-  {% for article in articles[:5] %}
+  {% for article in articles_page.object_list %}
     <article  class="post hentry">
       <header class="entry-header">
         <h1 class="entry-title">
@@ -27,5 +27,24 @@
         <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"><span class="continue-reading">Continue reading →</span></a>
       </div><!-- .entry-summary -->
     </article><!-- #post-## -->
-  {% endfor %} 
+  {% endfor %}
+
+  <nav class="navigation paging-navigation" role="navigation">
+    <div class="nav-links">
+      {% if articles_page.has_previous() %}
+        <div class="nav-previous">
+          <a href="{{ SITEURL }}/{{ articles_previous_page.url }}">
+            <span class="meta-nav">←</span> Older posts
+          </a>
+        </div>
+      {% endif %}
+      {% if articles_page.has_next() %}
+        <div class="nav-next">
+          <a href="{{ SITEURL }}/{{ articles_next_page.url }}">Newer posts 
+            <span class="meta-nav">→</span>
+          </a>
+        </div>
+      {% endif %}
+    </div><!-- .nav-links -->
+  </nav>
 {% endblock content %}
