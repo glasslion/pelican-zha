@@ -1680,3 +1680,11 @@ a.comment-edit-link:hover {
 	}
 }
 
+
+/* =Tag Cloud
+----------------------------------------------- */
+
+#tagcloud {
+    width: 600px;
+    height: 600px;   
+}

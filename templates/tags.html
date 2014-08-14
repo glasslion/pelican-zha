@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block extra_js %}
+  <script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ CDN_URL }}/theme/js/jquery.awesomeCloud-0.2.min.js"></script>
+  <script>
+    var settings = {
+      "size" : {
+        "grid" : 8,
+      },
+
+      "options" : {
+        "color" : "random-light",
+        "rotationRatio" : 0.3,
+        "printMultiplier" : 3
+      },
+      "font" : "Futura, Helvetica, sans-serif",
+      "shape" : "square"
+    }
+    $( "#tagcloud" ).awesomeCloud( settings );
+  </script>
+{% endblock %}
+
+{% block content %}
+  <div id="tagcloud">
+    {% for tag , articles in tags %}
+      <span data-weight="{{articles|length}}"><a href="{{ SITE_URL }}/{{tag.url}}">{{tag}}</a></span>
+    {% endfor %}
+  </div>
+{% endblock %}
