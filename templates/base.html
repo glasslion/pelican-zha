@@ -16,7 +16,11 @@
       {% endif %}
       <link rel="stylesheet" id="graphy-fonts-css" href="http://fonts.useso.com/css?family=Lora:400,400italic,700,700italic|Bitter:400&amp;subset=latin,latin-ext" type="text/css" media="all">
       <link rel="stylesheet" id="graphy-genericons-css" href="http://wp-themes.com/wp-content/themes/graphy/genericons/genericons.css?ver=3.0.3" type="text/css" media="all">
-      <link rel="stylesheet" id="graphy-style-css" href="{{ CDN_URL }}/theme/css/style.css" type="text/css" media="all">
+      {% assets filters="scss", output="css/style.css", "css/style.scss" %}
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+      {% endassets %}
+
+      <link rel="stylesheet" href="{{ CDN_URL }}/theme/css/typo.css" type="text/css" media="all">
       <meta name="generator" content="WordPress 4.0-beta3-20140812">
         <style type="text/css">
           .site-logo { margin-top: px; padding-bottom: px; }
