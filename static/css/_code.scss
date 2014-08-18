@@ -1,0 +1,9 @@
+@import 'pygment';
+
+
+// Many other css frameworks will override the background color
+// of <pre></pre>. Use @extend to copy the .highlight background
+// and color styles to `.highlight pre`
+.highlight pre {
+    @extend .highlight;
+}
