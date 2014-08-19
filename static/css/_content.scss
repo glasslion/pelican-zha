@@ -39,17 +39,19 @@
     color: #777;
     font-size: 14px;
     text-align: center;
-}
-.entry-meta a {
-    border-bottom: solid 1px #ccc;
-    color: #777;
-}
-.entry-meta a:hover {
-    color: #333;
-}
-.entry-meta {
     margin-bottom: 24px;
+
+    a {
+        border-bottom: solid 1px #ccc;
+        color: #777;
+
+        &:hover{
+            color: #333;
+            text-decoration: none;
+        }
+    }
 }
+
 .post-thumbnail {
     margin-bottom: 24px;
     text-align: center;
