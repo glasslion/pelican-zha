@@ -50,16 +50,7 @@
     padding: 24px 0 1px 30px;
     position: relative;
 }
-.entry-content blockquote:before, .comment-content blockquote:before {
-    color: #ccc;
-    content: "\201C";
-    font-family: Georgia, serif;
-    font-size: 60px;
-    left: -5px;
-    line-height: 1;
-    position: absolute;
-    top: 0;
-}
+
 .entry-content table, .comment-content table {
     border-top: solid 1px #ddd;
     font-size: 14px;
@@ -147,12 +138,6 @@
     }
     .entry-content dd {
         margin-left: 2em;
-    }
-    .entry-content blockquote {
-        padding: 28px 0 1px 45px;
-    }
-    .entry-content blockquote:before {
-        font-size: 90px;
     }
     .entry-content pre {
         font-size: 15px;
