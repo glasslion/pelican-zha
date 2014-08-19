@@ -68,6 +68,14 @@
     margin-top: 8px;
 }
 
+.entry-content code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
 @media screen and (min-width: 780px) {
     /* Base */
     .entry-content , .entry-summary {
