@@ -67,6 +67,7 @@
 }
 .entry-content {
     margin-bottom: 24px;
+    font-family: Lato, #{$font-hei};
 }
 @media screen and (min-width: 780px) {
     .entry-title {
@@ -108,7 +109,11 @@
 /* Entry Summary */
 .entry-summary {
     margin-bottom: 24px;
+    p {
+        font-family: Lato, #{$font-hei};
+    }
 }
+
 .continue-reading {
     text-transform: uppercase;
 }
