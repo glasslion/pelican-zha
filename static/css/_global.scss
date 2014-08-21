@@ -1,3 +1,4 @@
+@import "fonts";
 
 body,
 button,
@@ -5,9 +6,9 @@ input,
 select,
 textarea {
     color: #333;
-    font-family: Lora, Georgia, serif;
     font-size: 16px;
     line-height: 24px;
+    font-family: Lato, #{$font-hei};
 }
 
 ::selection {
@@ -22,7 +23,7 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
     clear: both;
     color: #111;
-    font-family: Bitter, Georgia, serif;
+    font-family: Bitter, #{$font-song};
     letter-spacing: -0.01em;
 }
 

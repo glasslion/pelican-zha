@@ -1,9 +1,10 @@
+@import "fonts";
 
 .main-navigation-wrapper {
     border-bottom: solid 1px #ddd;
 }
 .main-navigation {
-    font-family: Bitter, Georgia, serif;
+    font-family: Bitter, #{$font-song};
     letter-spacing: -0.01em;
     position: relative;
 }

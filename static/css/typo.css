@@ -2,7 +2,7 @@
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-    font:500 0.875em/1.8 Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    font:500 0.875em/1.8;
 }
 
 /* 块/段落引用 */
