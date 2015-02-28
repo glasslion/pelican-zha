@@ -9,10 +9,10 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{% block title %}{{ SITENAME }}{%endblock title%}</title>
-      {% if FEED_RSS %}
-        <link rel ="alternate" type="application/rss+xml"
+      {% if FEED_ALL_ATOM %}
+        <link rel ="alternate" type="application/atom+xml"
                                title="{{ SITENAME }} — Flux RSS"
-                               href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
+                               href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" /> 
       {% endif %}
       <link rel="stylesheet" id="graphy-fonts-css" href="http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic|Bitter:400&amp;subset=latin,latin-ext" type="text/css" media="all">
       <link rel="stylesheet" id="graphy-genericons-css" href="{{ CDN_URL }}/theme/css/genericons.css" type="text/css" media="all">
@@ -42,9 +42,14 @@
                 <li class="current_page_item">
                   <a href="{{ SITE_URL }}/">Home</a>
                 </li>
-                <li class="page_item">
-                  <a href="http://wp-themes.com/?page_id=2">About</a>
-                </li>
+                {% if DISPLAY_PAGES_ON_MENU %}
+                  {% for page in PAGES %}
+                    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                  {% endfor %}
+                {% endif %}
+                {% for linkname, linkrul in LINKS %}
+                  <li><a href="{{ linkrul }}">{{ linkname }}</a></li>
+                {% endfor %}
                 <li class="page_item page_item_has_children">
                   <a href="#">Categories</a>
                   <ul class="children">
@@ -58,6 +63,21 @@
                 <li class="page_item">
                   <a href="{{ SITE_URL }}/tags.html">Tags</a>
                 </li>
+                <li class="page_item page_item_has_children">
+                  <a href="#">Social</a>
+                  <ul class="children">
+                    {% for linkname , linkrul in SOCIAL %}
+                      <li class="page_item">
+                        <a href="{{ linkrul }}">{{ linkname }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% if FEED_ALL_ATOM %}
+                  <li class="page_item">
+                    <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate">Feed</a>
+                  </li>
+                {% endif %}
               </ul>
             </div><!-- .menu -->
             <form role="search" method="get" class="search-form" onsubmit="return google_search()">
@@ -83,7 +103,7 @@
             <div class="site-info">
           <div class="site-copyright">© {{CURRENT_DATETIME|strftime('%Y')}} <a href="{{SITEURL}}" rel="home">{{SITENAME}}</a></div>
           <div class="site-credit">Powered by <a href="http://blog.getpelican.com/">Pelican</a> &amp;
-          <a href="http://wordpress.org/themes/graphy">Graphy</a></div>
+          <a href="http://wordpress.org/themes/graphy">Graphy</a>, hosted on <a href="https://github.com/">GitHub</a>.</div>
         </div><!-- .site-info -->
       </footer><!-- #colophon -->
 
