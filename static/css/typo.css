@@ -1,76 +1,8 @@
 @charset "utf-8";
 
-/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
-html {
-    color: #444333;
-    background: #fff;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-rendering: optimizelegibility;
-}
-
-/* 内外边距通常让各个浏览器样式的表现位置不同 */
-body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    margin: 0;
-    padding: 0;
-}
-
-/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-
-/* HTML5 媒体文件跟 img 保持一致 */
-audio, canvas, video {
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-}
-
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-    font:500 0.875em/1.8 Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
-}
-
-/* 去除 IE6 input/button 多余的空白 */
-button, input {
-    *width: auto;
-    *overflow: visible;
-
-    /* 让 input 和 button 一样高 */
-    line-height: normal;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-
-/* 去掉各Table  cell 的边距并让其边重合 */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* IE bug fixed: th 不继承 text-align*/
-th {
-    text-align: inherit;
-}
-
-/* 去除默认边框 */
-fieldset, img {
-    border: 0;
-}
-
-/* 解决 IE6-7 图片缩放锯齿问题 */
-img {
-    -ms-interpolation-mode: bicubic;    
-}
-
-/* ie6 7 8(q) bug 显示为行内表现 */
-iframe {
-    display: block;
+    font:500 0.875em/1.8;
 }
 
 /* 块/段落引用 */
@@ -90,17 +22,6 @@ blockquote p {
     margin-bottom: 0;
 }
 
-/* Firefox 以外，元素没有下划线，需添加 */
-acronym, abbr {
-    border-bottom: 1px dotted;
-    font-variant: normal;
-}
-
-/* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌） */
-abbr {
-    cursor: help;
-}
-
 /* 一致的 del 样式 */
 del {
     text-decoration: line-through;
@@ -111,25 +32,9 @@ address, caption, cite, code, dfn, em, th, var {
     font-weight: 400;
 }
 
-/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
-ul, ol {
-    list-style: none;
-}
-
-/* 对齐是排版最重要的因素, 别让什么都居中 */
-caption, th {
-    text-align: left;
-}
-
-q:before, q:after {
-    content: '';
-}
 
 /* 统一上标和下标 */
 sub, sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
     vertical-align: text-top\9;
 }
 :root sub, :root sup{
@@ -174,20 +79,10 @@ pre, code {
     word-wrap: break-word;
 }
 pre {
-    background: #f8f8f8;
     border:1px solid #ddd;
     padding: 1em 1.5em;
 }
 
-/* 一致化 horizonal rule */
-hr{
-    border:none;
-    border-bottom:1px solid #cfcfcf;
-    margin-bottom:10px;
-    *color:pink;*filter:chroma(color=pink);
-    height:10px;
-    *margin:-7px 0 2px;
-}
 
 /* 底部印刷体、版本等标记 */
 small, .typo-small, 
@@ -203,18 +98,6 @@ figcaption {
     cursor: move;
 }
 
-.clearfix:before, .clearfix:after {
-    content: "";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both
-}
-
-.clearfix {
-    zoom: 1
-}
 
 /* 强制文本换行 */
 .textwrap, .textwrap td, .textwrap th{
@@ -225,21 +108,12 @@ figcaption {
     table-layout:fixed;
 }
 
-/* 提供 serif 版本的字体设置 */
-.serif{font-family:Palatino, Hiragino Mincho ProN W3, Optima, STSong, Georgia, serif;}
-
 /* 保证块/段落之间的空白隔行 */
 .typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
 .typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table {
     margin-bottom: 1.2em;
 }
 
-h1, h2, h3, h4, h5, h6{
-    font-weight: 500;
-    *font-weight: 800;
-    font-family: Helvetica Neue, Microsoft Yahei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
-    color:#333;
-}
 
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
 .typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
@@ -303,15 +177,6 @@ h1, h2, h3, h4, h5, h6{
     border-radius:0;
 }
 
-/* 高亮选中 */
-::-moz-selection {
-    background:#08c;
-    color:#fff;
-}
-::selection {
-    background:#08c;
-    color:#fff;
-}
 
 /* TODO: 供着重号使用 */
 .typo-em, .typo em, legend, caption {font-weight: 700;}

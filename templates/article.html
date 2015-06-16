@@ -2,25 +2,61 @@
 
 {% block content %}
 
-<article class="content typo">
-  <header>
-    <h1 class="posttitle">
-      <a class="nodec" href="/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        {{ article.title }}
-      </a>
-    </h1>
-    <div class="post-info">
-      <p class="published" title="{{ article.date.isoformat() }}">
-      {{ article.locale_date }}
-      </p>
-    </div>
-  </header>
+  <article class="post hentry typo">
+    <header class="entry-header">
+      <h1 class="entry-title">{{ article.title }}</h1>
+        <div class="entry-meta">
+          <span class="posted-on">Posted on 
+            <a href="{{ SITEURL }}/archives/{{ article.date|strftime('%Y') }}/{{ article.date|strftime('%m') }}/" rel="bookmark">
+              <time class="entry-date published" datetime="{{article.date.isoformat()}}">{{ article.locale_date }}</time>
+            </a>
+          </span>
+          <span class="byline">by 
+            <span class="author vcard">
+              <a class="url fn n" href="{{ SITEURL }}/{{ article.url }}">{{article.author}}</a>
+            </span>
+          </span>
+          <span class="comments-link">· <a href="{{ SITEURL }}/{{ article.url }}#comments" title="Comment on More Tags">Leave a comment</a>
+          </span>
+        </div><!-- .entry-meta -->
+    </header>
 
-  <div class="article">
-    {{ article.content }}
-  </div><!-- .content -->
+    <div class="entry-content">
+      {{ article.content }}
+    </div><!-- .entry-content -->
+    <footer class="entry-meta entry-footer">
+      <span class="cat-links">Posted in 
+        <a href="{{ SITEURL }}/{{category.url}}" rel="category">{{ category }}</a>
+      </span>
+      <span class="tags-links">Tagged 
+        {% for tag in article.tags %}
+          <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>
+          {% if not loop.last %}
+            ,
+          {% endif %}
+        {% endfor %}
+      </span>
+    </footer><!-- .entry-meta -->
 
-</article>
+  </article><!-- #post-## -->
+
+
+  <nav class="navigation post-navigation" role="navigation">
+    <div class="nav-links">
+      {% if article.prev_article %}
+        <div class="nav-previous">
+          <h2>Previous post</h2>
+          <a href="{{ SITEURL }}/{{ article.prev_article.url }}" rel="prev">{{article.prev_article.title}}</a>
+        </div>
+      {% endif %}
+      {% if article.next_article %}
+        <div class="nav-next">
+          <h2>Next post</h2>
+          <a href="{{ SITEURL }}/{{ article.next_article.url }}" rel="next">{{article.next_article.title}}</a>
+        </div>
+      {% endif %}
+    </div><!-- .nav-links -->
+  </nav><!-- .navigation -->
 
 {% if DISQUS_SITENAME %}
   {% include "disqus.html" %}
