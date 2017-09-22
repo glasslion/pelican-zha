@@ -14,7 +14,8 @@
                                title="{{ SITENAME }} — Flux RSS"
                                href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" />
       {% endif %}
-      <link rel="stylesheet" id="graphy-fonts-css" href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Bitter:400&amp;subset=latin,latin-ext" type="text/css" media="all">
+      {% comment %}<link rel="stylesheet" id="graphy-fonts-css" href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Bitter:400&amp;subset=latin,latin-ext" type="text/css" media="all">{% endcomment %}
+      <link rel="stylesheet" id="graphy-fonts-css" href="http://fonts.proxy.ustclug.org/css?family=Lato:400,700,400italic,700italic|Bitter:400&amp;subset=latin,latin-ext" type="text/css" media="all">
       <link rel="stylesheet" id="graphy-genericons-css" href="{{ CDN_URL }}/theme/css/genericons.css" type="text/css" media="all">
       <link rel="stylesheet" href="{{ CDN_URL }}/theme/css/style.min.css?{{TIMESTAMP}}">
       <link rel="stylesheet" href="{{ CDN_URL }}/theme/css/typo.css?{{TIMESTAMP}}" type="text/css" media="all">
@@ -40,7 +41,6 @@
       <meta name="msapplication-config" content="http://wing2south.qiniudn.com/theme/icons/browserconfig.xml">
       <meta name="theme-color" content="#ffffff">
       {# End Favicons #}
-      {% block extra_css %}{% endblock %}
     {% endblock headers %}
   </head>
 
